@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Meteor Dodge (Rust + WASM)</title>
+  <style>
+    html, body { height: 100%; margin: 0; background:#0b1020; }
+    .wrap { display:grid; place-items:center; height:100%; }
+    canvas { width: min(96vw, 640px); height: min(70vh, 400px); border:1px solid #1e2b4a; border-radius:12px; background:#000; }
+    .help { position: fixed; bottom: 12px; left: 12px; color:#cce1ff; font: 12px/1.4 ui-monospace, Menlo, Consolas, monospace; opacity:0.8; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <canvas id="game" width="640" height="400"></canvas>
+  </div>
+  <div class="help">←/→ または A/D で移動・Rでリトライ</div>
+  <script type="module">
+    import init from "./pkg/meteor_dodge.js";
+    init();
+  </script>
+</body>
+</html>

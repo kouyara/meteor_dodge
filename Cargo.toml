@@ -1,0 +1,33 @@
+[package]
+name = "meteor-dodge"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+wasm-bindgen = "0.2"
+js-sys = "0.3"
+# デバッグ時のpanic表示（任意）
+console_error_panic_hook = { version = "0.1", optional = true }
+
+# 必要な web-sys 機能だけ有効化
+[dependencies.web-sys]
+version = "0.3"
+features = [
+  "Window",
+  "Document",
+  "HtmlCanvasElement",
+  "CanvasRenderingContext2d",
+  "KeyboardEvent",
+  "EventTarget",
+  "Performance",
+  "DomRect",
+]
+
+[features]
+# 何も有効化しないのが既定
+default = []
+# optional依存をfeatureとして公開（namespaced features / dep: 推奨）
+console_error_panic_hook = ["dep:console_error_panic_hook"]
